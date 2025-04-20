@@ -1,113 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>BGSI Codes</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BGSI Hub</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
-        <a class="navbar-brand" href="#">BGSI Secrets</a>
-        <div class="ms-auto d-flex gap-2">
-            <a class="btn btn-light btn-sm" href="https://bgsi.gg" target="_blank">Official Site</a>
-            <a class="btn btn-light btn-sm" href="https://www.roblox.com/games/17081878951/" target="_blank">Play Game</a>
-            <button class="btn btn-sm btn-warning" onclick="toggleTheme()">Toggle Theme</button>
-        </div>
-    </nav>
+  <header>
+    <h1>BGSI Hub</h1>
+    <button id="themeToggle">🌙</button>
+  </header>
 
-    <div class="container mt-4">
-        <ul class="nav nav-tabs" id="sourceTabs"></ul>
-        <div id="codesContainer" class="row mt-3 g-3"></div>
-    </div>
+  <nav>
+    <button class="tab" data-tab="codes">Codes</button>
+    <button class="tab" data-tab="secrets">Secrets</button>
+    <button class="tab" data-tab="event">Event</button>
+    <button class="tab" data-tab="socials">Socials</button>
+    <button class="tab" data-tab="settings">Settings</button>
+  </nav>
 
-    <script src="codes.js"></script>
-    <script>
-        const themes = {
-            dark: {
-                '--bg': '#111', '--fg': '#fff', '--card-bg': '#222', '--card-hover': '#333'
-            },
-            light: {
-                '--bg': '#fff', '--fg': '#000', '--card-bg': '#f0f0f0', '--card-hover': '#e0e0e0'
-            }
-        };
+  <main>
+    <section id="codes" class="tab-content">
+      <h2>Codes</h2>
+      <table id="codesTable">
+        <thead>
+          <tr><th>Code</th><th>Reward</th><th>Location</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
 
-        function toggleTheme() {
-            const html = document.documentElement;
-            const newTheme = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
-            html.setAttribute("data-theme", newTheme);
-            localStorage.setItem("theme", newTheme);
-            applyTheme(newTheme);
-        }
+    <section id="secrets" class="tab-content">
+      <h2>Secrets, Glitches & Tips</h2>
+      <table id="secretsTable">
+        <thead>
+          <tr><th>Tip</th><th>How To Do It</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
 
-        function applyTheme(theme) {
-            const root = document.documentElement;
-            Object.entries(themes[theme]).forEach(([key, val]) => {
-                root.style.setProperty(key, val);
-            });
-        }
+    <section id="event" class="tab-content">
+      <h2>Event Info</h2>
+      <div id="eventImages">
+        <!-- Add your <img src="link"> here -->
+      </div>
+      <h3>Event Eggs</h3>
+      <table id="eventTable">
+        <thead>
+          <tr><th>Event Egg</th><th>Pet</th><th>Chance</th><th>Rarity</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
 
-        function groupCodesBySource() {
-            const groups = {};
-            codes.forEach(c => {
-                if (!groups[c.source]) groups[c.source] = [];
-                groups[c.source].push(c);
-            });
-            return groups;
-        }
+      <h3>How to Do the Event</h3>
+      <table id="eventGuideTable">
+        <thead>
+          <tr><th>Item</th><th>How to Get It</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
 
-        function createCodeCard(code, reward) {
-            return `
-                <div class="col-md-4 animate">
-                    <div class="code-card p-3 rounded shadow-sm">
-                        <h5>${code}</h5>
-                        <p class="text-muted">${reward}</p>
-                    </div>
-                </div>
-            `;
-        }
+    <section id="socials" class="tab-content">
+      <h2>Socials</h2>
+      <ul>
+        <li><a href="https://www.roblox.com/games/85896571713843/Bubble-Gum-Simulator-INFINITY" target="_blank">Play BGSI</a></li>
+        <li><a href="https://discord.gg/rumble" target="_blank">BGSI Discord</a></li>
+        <li><a href="https://x.com/RumbleStudiosRB" target="_blank">X (Twitter)</a></li>
+        <li><a href="https://youtube.com/channel/UC8slJn2yPPaGpB7k2HtWrUQ/" target="_blank">Rumble YouTube</a></li>
+        <li><a href="https://www.roblox.com/communities/3333298/Rumble-Studios#!/about" target="_blank">Roblox Group</a></li>
+        <li><a href="https://discord.gg/birona" target="_blank">Your Discord</a></li>
+        <li><a href="https://www.youtube.com/@bgsi_secrets" target="_blank">Your YouTube</a></li>
+      </ul>
+    </section>
 
-        function renderTabsAndCodes() {
-            const grouped = groupCodesBySource();
-            const tabs = document.getElementById("sourceTabs");
-            const container = document.getElementById("codesContainer");
+    <section id="settings" class="tab-content">
+      <h2>Settings</h2>
+      <p>Toggle between Light and Dark mode using the 🌙 button in the top-right corner.</p>
+    </section>
+  </main>
 
-            tabs.innerHTML = "";
-            let first = true;
-            Object.keys(grouped).forEach(source => {
-                const id = source.toLowerCase().replace(/\s+/g, "-");
-                const li = document.createElement("li");
-                li.className = "nav-item";
-                li.innerHTML = `<a class="nav-link ${first ? 'active' : ''}" href="#" onclick="showCodes('${id}', this)">${source}</a>`;
-                tabs.appendChild(li);
-
-                const div = document.createElement("div");
-                div.id = id;
-                div.className = "tab-content row g-3 mt-2";
-                if (!first) div.style.display = "none";
-                grouped[source].forEach(code => {
-                    div.innerHTML += createCodeCard(code.code, code.reward);
-                });
-                container.appendChild(div);
-
-                first = false;
-            });
-        }
-
-        function showCodes(id, el) {
-            document.querySelectorAll(".tab-content").forEach(div => div.style.display = "none");
-            document.querySelectorAll(".nav-link").forEach(link => link.classList.remove("active"));
-            document.getElementById(id).style.display = "flex";
-            el.classList.add("active");
-        }
-
-        window.onload = () => {
-            const savedTheme = localStorage.getItem("theme") || "dark";
-            document.documentElement.setAttribute("data-theme", savedTheme);
-            applyTheme(savedTheme);
-            renderTabsAndCodes();
-        };
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
