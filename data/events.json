@@ -1,3 +1,16 @@
 [
-  { "egg": "Spring Egg", "pet": "Flower Bunny", "percentage": "5%", "rarity": "Epic" }
+  { "egg": "Pastel Egg", "pet": "Paper Doggy", "percentage": "60%", "rarity": "Common" },
+  { "egg": "Pastel Egg", "pet": "Paper Bunny", "percentage": "29.90%", "rarity": "Unique" },
+  { "egg": "Pastel Egg", "pet": "Chubby Bunny", "percentage": "7%", "rarity": "Rare" },
+  { "egg": "Pastel Egg", "pet": "Hatchling", "percentage": "2.25%", "rarity": "Epic" },
+  { "egg": "Pastel Egg", "pet": "Sweet Treat", "percentage": "0.004%", "rarity": "Legendary" },
+  { "egg": "Pastel Egg", "pet": "Rainbow Marshmellow", "percentage": "0.0008%", "rarity": "Legendary" },
+  { "egg": "Pastel Egg", "pet": "Giant Chocolate Chicken", "percentage": "0.000002%", "rarity": "Secret" },
+  { "egg": "Bunny Egg", "pet": "Bunny Doggy", "percentage": "64%", "rarity": "Common" },
+  { "egg": "Bunny Egg", "pet": "Egg Bunny", "percentage": "30%", "rarity": "Unique" },
+  { "egg": "Bunny Egg", "pet": "Angel Bunny", "percentage": "2%", "rarity": "Epic" },
+  { "egg": "Bunny Egg", "pet": "Seraphic Bunny", "percentage": "0.02%", "rarity": "Legendary" },
+  { "egg": "Bunny Egg", "pet": "Ethereal Bunny", "percentage": "0.001%", "rarity": "Legendary" },
+  { "egg": "Bunny Egg", "pet": "Cardinal Bunny", "percentage": "0.0001%", "rarity": "Legendary" },
+  { "egg": "Bunny Egg", "pet": "Easter Basket", "percentage": "0.000001%", "rarity": "Secret" }
 ]
