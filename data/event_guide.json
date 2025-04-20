@@ -1,3 +1,11 @@
 [
-  { "item": "Spring Token", "how": "Collect from map chests" }
+  { "item": "Basic Egg", "how": "In Overworld, Between Infinity Egg Area and Iceshard Egg or Between VIP Area and Portals" },
+  { "item": "Tree Egg", "how": "In Overworld, In one of the trees where you collect the coins" },
+  { "item": "Bouncy Egg", "how": "In Overworld, Jump on the trampoline 5 times" },
+  { "item": "Cracked Egg", "how": "Jump up from the overworld trampoline up to the zen island and land on the gem genies head (optional i think)" },
+  { "item": "Sticker Egg", "how": "In The void, go to the black market and on the left of the market you will see a egg, click it" },
+  { "item": "Race Egg", "how": "In Overworld, Finish a island race" },
+  { "item": "Bubble Egg", "how": "Blow exactly 777 bubbles then sell" },
+  { "item": "Nerd Egg", "how": "In floating island, go behind the island and complete the word search" },
+  { "item": "Disco Egg", "how": "In Twilight, talk to the alien by the sell and do the challange and get to 40" },
 ]
