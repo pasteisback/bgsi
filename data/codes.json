@@ -2,5 +2,6 @@
   { "code": "Release", "reward": "1 Mystery Box", "location": "Group" },
   { "code": "Lucky", "reward": "1 Lucky V Potion", "location": "Discord" },
   { "code": "Update2", "reward": "2 Lucky V Potions", "location": "Game" },
+  { "code": "Thanks", "reward": "2 Mystery Boxes", "location": "Group" },
   { "code": "Easter", "reward": "4 Mystery Boxes", "location": "Game" }
 ]
