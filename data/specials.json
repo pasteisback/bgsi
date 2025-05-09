@@ -18,6 +18,7 @@ ScreenGui.Name = "Freecum"
 ScreenGui.ResetOnSpawn = false
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
 ScreenGui.Parent = game.CoreGui
+ScreenGui.Enabled = UIVisible
 
 local Frame = Instance.new("Frame")
 Frame.Name = "MainFrame"
