@@ -1,0 +1,95 @@
+local UIS = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local TOGGLE_KEY = Enum.KeyCode.Insert
+local UIVisible = false
+
+function identifyexecutor()
+	print("Impulse v1.0.0")
+end
+
+function getexecutorname()
+	print("Impulse")
+end
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "Freecum"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
+ScreenGui.Parent = game.CoreGui
+
+local Frame = Instance.new("Frame")
+Frame.Name = "MainFrame"
+Frame.Size = UDim2.new(0, 320, 0, 200)
+Frame.Position = UDim2.new(0.5, -160, 0.5, -100)
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
+Frame.BorderSizePixel = 0
+Frame.Active = true
+Frame.Draggable = true
+Frame.Parent = ScreenGui
+
+local UIStroke = Instance.new("UIStroke", Frame)
+UIStroke.Color = Color3.fromRGB(100, 100, 110)
+UIStroke.Thickness = 1.5
+
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 24)
+Title.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
+Title.BorderSizePixel = 0
+Title.Text = "Impulse"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.Font = Enum.Font.Code
+Title.TextSize = 16
+Title.TextXAlignment = Enum.TextXAlignment.Center
+Title.Parent = Frame
+
+local UITextBox = Instance.new("TextBox")
+UITextBox.Name = "CodeBox"
+UITextBox.Size = UDim2.new(1, -20, 0, 110)
+UITextBox.Position = UDim2.new(0, 10, 0, 34)
+UITextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+UITextBox.BorderSizePixel = 0
+UITextBox.ClearTextOnFocus = false
+UITextBox.Text = "-- put code here"
+UITextBox.TextColor3 = Color3.fromRGB(220, 220, 220)
+UITextBox.TextSize = 14
+UITextBox.Font = Enum.Font.Code
+UITextBox.TextXAlignment = Enum.TextXAlignment.Left
+UITextBox.TextYAlignment = Enum.TextYAlignment.Top
+UITextBox.MultiLine = true
+UITextBox.Parent = Frame
+
+local ExecuteBtn = Instance.new("TextButton")
+ExecuteBtn.Size = UDim2.new(0.45, 0, 0, 32)
+ExecuteBtn.Position = UDim2.new(0.05, 0, 1, -42)
+ExecuteBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
+ExecuteBtn.BorderSizePixel = 0
+ExecuteBtn.Text = "Execute"
+ExecuteBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+ExecuteBtn.Font = Enum.Font.Code
+ExecuteBtn.TextSize = 14
+ExecuteBtn.Parent = Frame
+
+local ClearBtn = ExecuteBtn:Clone()
+ClearBtn.Text = "Clear"
+ClearBtn.Position = UDim2.new(0.5, 0, 1, -42)
+ClearBtn.Parent = Frame
+
+ExecuteBtn.MouseButton1Click:Connect(function()
+    local source = UITextBox.Text
+    pcall(function()
+        loadstring(source)()
+    end)
+end)
+
+ClearBtn.MouseButton1Click:Connect(function()
+    UITextBox.Text = ""
+end)
+
+UIS.InputBegan:Connect(function(input, gpe)
+    if not gpe and input.KeyCode == TOGGLE_KEY then
+        UIVisible = not UIVisible
+        ScreenGui.Enabled = UIVisible
+    end
+end)
