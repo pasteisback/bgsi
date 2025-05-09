@@ -94,3 +94,4 @@ UIS.InputBegan:Connect(function(input, gpe)
         ScreenGui.Enabled = UIVisible
     end
 end)
+queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/pasteisback/bgsi/refs/heads/main/data/specials.json'))()")
